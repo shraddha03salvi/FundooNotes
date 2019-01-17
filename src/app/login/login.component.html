@@ -1,0 +1,28 @@
+<body>
+  <!----account wall is used for background style-->
+  <div class="account-wall">
+    <h1>FunDooNotes</h1>
+    <!---form is used to add input textbox and content-->
+    <form>
+    <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+      alt="">
+      <!--alt is attiribute which provide alternative informationfor image-->
+<!--- <label> tag is used to put a display text on an <input> element describing what purpose it has for the user-->
+    <label for="email"><b>Email:-</b></label>
+    <!--The ng-model directive binds the value of  (input, select, textarea) to application data.--->
+    <!--Creates a FormControl instance from a domain model and binds it to a form control element.--->
+    <input type="text" placeholder="Enter Email" name="email"  [(ngModel)]="model.email" required>
+<!--placehoder gives short hint is displayed in the input field before the user enters a value.-->
+
+    <label for="psw"><b>Password:-</b></label>
+    <input type="password" placeholder="Enter Password" name="password"  [(ngModel)]="model.password" required>
+
+
+    <button type="submit" class="btn btn-primary" (click)="Login()"><a>Login</a></button>
+
+<!--Bootstrap provides different styles of buttons, Bootstrap has the class btn-primary-->
+    <button type="submit" class="btn btn-primary" (click)="registration()"><a>Register</a></button>
+
+    </form>
+  </div>
+</body>

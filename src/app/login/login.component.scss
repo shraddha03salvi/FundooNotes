@@ -1,0 +1,86 @@
+body{
+  background-color: #e8f3f8;
+
+}
+//for header
+// px means: 'px' is the quantity of length equal to the pixel in an unscaled HTML
+h1{
+  text-align: center;
+  font-size: 50px;
+  color:purple;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  margin-bottom: 10px;
+}
+// design the form 
+form{
+height: auto;
+  margin: auto;
+  width: 300px;
+  color: steelblue;
+  padding: 30px 30px 30px 30px;
+ 
+}
+// for input type which is mension in the text box
+// padding is the inner space of an element  padding is the space inside of its border.
+// margin is the space outside of an element's border
+//padding:- toppx rightpx, bottom px leftpx
+input{
+  padding: 10px;
+  font-size: inherit;
+} 
+// for text box design that is block
+input[type="text"]{
+  display: block;
+  margin-bottom: 25px;
+  width: 88%;
+  border: 2px solid steelblue;
+}
+// for text box design that is block
+input[type="password"]{
+  display: block;
+  margin-bottom: 25px;
+  width: 88%;
+  border: 2px solid steelblue;
+}
+// for button design
+button {
+  background-color: #008CBA;
+  color: white;
+  cursor: pointer;
+  width: 120px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 12px;
+  text-align: center;
+  margin: 25px 50px 40px 50px;
+  margin-bottom: 10px;
+}
+// for backgeound design
+.account-wall
+{width: 300px;
+  height: auto;
+    margin-top: 10px;
+    margin:auto;
+    padding: 1% 8% 1% 8%;
+   // padding: 50px 60px 50px 70px;
+  background-color:skyblue;
+  border-radius: 15px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.3);
+  
+}
+// for image design
+.profile-img
+{ 
+    width:   130px ;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+   
+

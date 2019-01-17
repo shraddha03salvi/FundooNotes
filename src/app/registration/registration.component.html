@@ -1,0 +1,27 @@
+<div class="account-wall">
+  <!----account wall is used for background style-->
+  <h3>Registration Form</h3>
+<!---form is used to add input textbox and content-->
+  <form>
+    <!--- <label> tag is used to put a display text on an <input> element describing what purpose it has for the user-->
+    <label for="firstName"><b>First Name:-</b></label>
+    <input type="text" placeholder="Enter First Name" name="firstname" [(ngModel)]="model.firstname" required>
+    <label for="lastName"><b>Last Name:-</b></label>
+    <input type="text" placeholder="Enter Last Name" name="lastname" [(ngModel)]="model.lastname" required>
+
+
+    <label for="username"><b>Email:-</b></label>
+    <input type="text" placeholder="Enter Email" name="email" [(ngModel)]="model.email" required>
+
+
+    <label for="password"><b>Password:-</b></label>
+    <input type="password" placeholder="Enter password" name="password" [(ngModel)]="model.password" required>
+
+    <label for="password"><b>Confirm Password:-</b></label>
+    <input type="password" placeholder="Confirm password" name="confirmPassword" [(ngModel)]="model.confirmPassword" required>
+<!--Bootstrap provides different styles of buttons, Bootstrap has the class btn-primary-->
+    <button class="btn btn-primary" type="submit" (click)="registration()"><a>Register</a></button>
+    <button class="btn btn-primary" type="submit" (click)="cancel()"><a>Cancel</a></button>
+
+  </form>
+</div>
