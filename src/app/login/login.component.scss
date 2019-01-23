@@ -1,86 +1,111 @@
-body{
-  background-color: #e8f3f8;
+
+/*@purpose : Set style,font and color Login page
+@Description:Using the tag name set color font and border height of the page
+@Author: Shraddha Dhatavkar
+*/
+/*--For Desiging the form--*/
+
+form {
+border: 20px solid #ffffff;
+border-radius: 15px;
 
 }
-//for header
-// px means: 'px' is the quantity of length equal to the pixel in an unscaled HTML
-h1{
-  text-align: center;
-  font-size: 50px;
-  color:purple;
-  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-  margin-bottom: 10px;
+/*--For header style--*/
+h1 {
+color:purple;
+text-align: center;
+text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+font-family:  serif;
+font-style: oblique;
 }
-// design the form 
-form{
-height: auto;
-  margin: auto;
-  width: 300px;
-  color: steelblue;
-  padding: 30px 30px 30px 30px;
- 
+
+/*--For Input content which is filled by the user--*/
+input {
+width: 100%;
+padding: 12px 20px;
+margin: 1px 0;
+display: inline-block;
+border: 1px solid #ccc;
+box-sizing: border-box;
+border-radius: 8px
 }
-// for input type which is mension in the text box
-// padding is the inner space of an element  padding is the space inside of its border.
-// margin is the space outside of an element's border
-//padding:- toppx rightpx, bottom px leftpx
-input{
-  padding: 10px;
-  font-size: inherit;
-} 
-// for text box design that is block
-input[type="text"]{
-  display: block;
-  margin-bottom: 25px;
-  width: 88%;
-  border: 2px solid steelblue;
-}
-// for text box design that is block
-input[type="password"]{
-  display: block;
-  margin-bottom: 25px;
-  width: 88%;
-  border: 2px solid steelblue;
-}
-// for button design
+/*--For Desiging the button --*/
+
 button {
-  background-color: #008CBA;
-  color: white;
-  cursor: pointer;
-  width: 120px;
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-size: 12px;
-  text-align: center;
-  margin: 25px 50px 40px 50px;
-  margin-bottom: 10px;
+background-color:steelblue;
+color: white;
+padding: -5px;
+margin: 4px 0;
+border: none;
+cursor: pointer;
+width: 30%;
+padding-bottom: 0px 0px;
+border-radius: 20px;
+text-align: center;
+//margin: 20px 100px 10px 75px;
+margin-bottom: -40px;
+font-size: 16px;
+//border-radius: 8px;
+//margin-bottom: -13px;
+width: 130px;
+height: 50px;
+margin-left: 50px;
+margin-top: 5px;
+//border-radius: 4px;
 }
-// for backgeound design
-.account-wall
-{width: 300px;
-  height: auto;
-    margin-top: 10px;
-    margin:auto;
-    padding: 1% 8% 1% 8%;
-   // padding: 50px 60px 50px 70px;
-  background-color:skyblue;
-  border-radius: 15px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.3);
-  
-}
-// for image design
-.profile-img
-{ 
-    width:   130px ;
-    height: 96px;
-    margin: 0 auto 10px;
-    display: block;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-   
 
+
+/*--For mousehover operation--*/
+button:hover {
+opacity: 0.8;
+}
+/*--For container class design--*/
+.container
+{
+width: 400px;
+height: 400px;
+padding: 15px;
+top: 50%;
+left:50%;
+position:fixed;
+margin-top:-200px;
+margin-left:-250px;
+border: 1px solid #ccc;
+//padding: 50px 50px 50px 50px;
+//background-color:skyblue;
+border-radius: 2px;
+//-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+//-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.3);
+border-radius: 35px;
+background-color:ghostwhite;
+}
+
+.example-container {
+display: flex;
+flex-direction: column;
+}
+
+.example-container > * {
+width: 100%;
+}
+
+.email {
+border:none;
+}
+
+.button {
+color: #ffffff
+}
+/* for image design*/
+.profile-img
+{
+   width:   130px ;
+   height: 96px;
+   margin: 0 auto 10px;
+   display: block;
+   -moz-border-radius: 50%;
+   -webkit-border-radius: 50%;
+   border-radius: 50%;
+   margin-bottom: 10px;
+}

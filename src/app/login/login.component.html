@@ -1,28 +1,38 @@
-<body>
-  <!----account wall is used for background style-->
-  <div class="account-wall">
-    <h1>FunDooNotes</h1>
-    <!---form is used to add input textbox and content-->
-    <form>
-    <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-      alt="">
-      <!--alt is attiribute which provide alternative informationfor image-->
-<!--- <label> tag is used to put a display text on an <input> element describing what purpose it has for the user-->
-    <label for="email"><b>Email:-</b></label>
-    <!--The ng-model directive binds the value of  (input, select, textarea) to application data.--->
-    <!--Creates a FormControl instance from a domain model and binds it to a form control element.--->
-    <input type="text" placeholder="Enter Email" name="email"  [(ngModel)]="model.email" required>
-<!--placehoder gives short hint is displayed in the input field before the user enters a value.-->
+<!----****************************************************************
+@ purpose:= Designing The login page For the FundooNOtes using HTML And Css
+@Description:Put all the credential in proper tag so that it will show in the Login page
+@Author: Shraddha Dhatavkar
+*******************************************************************************-->
+<div class="container">
+  <img width="70" class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+    alt="">
 
-    <label for="psw"><b>Password:-</b></label>
-    <input type="password" placeholder="Enter Password" name="password"  [(ngModel)]="model.password" required>
+  <h1 style="font-size:180%">FundooNotes</h1>
 
-
-    <button type="submit" class="btn btn-primary" (click)="Login()"><a>Login</a></button>
-
-<!--Bootstrap provides different styles of buttons, Bootstrap has the class btn-primary-->
-    <button type="submit" class="btn btn-primary" (click)="registration()"><a>Register</a></button>
-
-    </form>
+  <div class="example-container">
+    <!-----<mat-form-field> is a component used to wrap several Angular Material components and apply common Text field styles such as the
+       underline, floating label, and hint messages.--------->
+    <mat-form-field>
+      <!--- "form field" refers to the wrapper component( the input, textarea, select, etc)
+        form field control" refers to the component that the <mat-form-field> is wrapping--->
+      <input class="email" (ngModel)="model.email" matInput placeholder="Enter your email" pattern="[^ @]*@[^ @]*"
+        [formControl]="email" required>
+        <!---matInput placeholder=result in a floating label being added to the mat-form-field--->
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
   </div>
-</body>
+  <div class="example-container">
+    <mat-form-field>
+      <input class="email" [(ngModel)]="model.password" matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$" [formControl]="password"
+        required>
+      <!----- matSuffix:=---It will be included within the visual container that wraps the 
+          form control as per the Material specification.and The matPrefix and matSuffix elements are 
+          center aligned by default for the newer appearances. --->
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <mat-error *ngIf="password.invalid">{{ getErrorMessagePassword()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <button mat-button color="primary" class="button" type="submit" (click)="login()">Login</button>
+  <button mat-button color="primary" class="button" type="submit" (click)="registration()">Register</button>
+</div>

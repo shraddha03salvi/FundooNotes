@@ -1,99 +1,88 @@
-body {
-  background-color: #e8f3f8;
-  
-}
+/*@purpose : Set style,font and color for Registration page
+@Description:Using the tag name set color font and border height of the page
+@Author: Shraddha Dhatavkar
+*/
 //for header
 // px means: 'px' is the quantity of length equal to the pixel in an unscaled HTML
-h3 {
-  text-align: center;
-  font-size: 35px;
+/* Bordered form */
+h1{
   color: palevioletred;
-  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
-  margin-bottom: 1%;
-}
-// design the form 
-form {
-  height: auto;
 
-  color: steelblue;
-  padding: 30px 10px 30px 10px;
-
-  margin: 20px auto;
-  width: 350px;
-
-}
-// for input type which is mension in the text box
-// padding is the inner space of an element  padding is the space inside of its border.
-// margin is the space outside of an element's border
-//padding:- toppx rightpx, bottom px leftpx
-
-input {
-  padding: 10px;
-  font-size: inherit;
-}
-// for text box design that is block
-input[type="text"] {
-  display: block;
-  margin-bottom: 10px;
-  width: 80%;
-  border: 2px solid steelblue;
-}
-// for text box design that is block
-input[type="password"] {
-  display: block;
-  margin-bottom: 10px;
-  width: 80%;
-  border: 2px solid steelblue;
-}
-// for text box design that is block
-input[type="email"] {
-  display: block;
-  margin-bottom: 10px;
-  width: 80%;
-  border: 2px solid steelblue;
-}
-// for text box design that is block
-input[type="submit"] {
-
-  width: 250px;
-  height: 45px;
-  border: none;
-  background: steelblue;
-  color: white;
-}
-// focus is used for highlight when we click on it
-input[type="submit"]:focus {
-  margin-bottom: 10px;
-  width: 250px;
-  height: 45px;
-  border: none;
-  background: white;
-  color: steelblue;
-}
-// for backgeound design
-.account-wall {
-  width: 300px;
-  height: auto;
-
-  margin: auto;
-  padding: 1% 8% 1% 8%;
-  background-color: skyblue;
-  border-radius: 75px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.3);
-
-}
-// for button design
-button {
-  background-color: #008CBA;
-  color: white;
-  cursor: pointer;
-  width: 200px;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 12px;
   text-align: center;
-  margin: 25px 50px 40px 50px;
-  margin-bottom: 0px;
+  font-style: oblique;
+  font-family:  serif;
 }
+h2{
+  color:rgb(0, 81, 255);
+  text-align: center;
+ 
+ }
+/* Set a style for all buttons */
+ /*button {
+  text-align: center;
+  background-color:rgba(5, 44, 172, 0.966);
+  color: white;
+  padding:2px 250px ;
+  margin: 5px 0px;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  border-radius: 8px
+}*/
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+/*Set style for page*/
+.container
+{
+width: 500px;
+height: 550px;
+top:50%;
+down:50%;
+left:50%;
+position: fixed;
+margin-top:-275px;
+margin-left:-250px;
+border: 1px solid #ccc;
+//padding: 50px 50px 50px 50px;
+//background-color:skyblue;
+border-radius: 35px;
+box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.3);
+background-color:ghostwhite;
+}
+
+/*set width */
+.my-form{
+min-width: 400px;
+max-width: 500px;
+width: 150%;
+}
+.full-width {
+  width: 90%;
+  margin-right: 40%;
+  margin-left: 5%;
+  }
+
+button {
+  background-color:steelblue;
+  color: white;
+  padding: -5px;
+  margin: 4px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  padding-bottom: 0px 0px;
+  border-radius: 20px;
+  text-align: center;
+  //margin: 20px 100px 10px 75px;
+  margin-bottom: -40px;
+  font-size: 16px;
+  //border-radius: 8px;
+  //margin-bottom: -13px;
+  width: 130px;
+  height: 50px;
+  margin-left: 90px;
+  margin-top: 5px;
+  //border-radius: 4px;
+  }

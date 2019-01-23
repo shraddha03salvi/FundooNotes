@@ -16,4 +16,4 @@ export class HttpService {
 //service: api work as a service so It allows users to explore functionality of Web Services
 //post: add a data into
 //HttpClient:is Angular's mechanism for communicating with a remote server over HTTP.
-//remote server:A server that is dedicated to handling users that are not on a LAN but need remote access to it. 
+//remote server:A server that is dedicated to handling users that are not on a LAN but need remote access to it.  

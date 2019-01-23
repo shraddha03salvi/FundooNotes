@@ -1,27 +1,67 @@
-<div class="account-wall">
-  <!----account wall is used for background style-->
-  <h3>Registration Form</h3>
-<!---form is used to add input textbox and content-->
-  <form>
-    <!--- <label> tag is used to put a display text on an <input> element describing what purpose it has for the user-->
-    <label for="firstName"><b>First Name:-</b></label>
-    <input type="text" placeholder="Enter First Name" name="firstname" [(ngModel)]="model.firstname" required>
-    <label for="lastName"><b>Last Name:-</b></label>
-    <input type="text" placeholder="Enter Last Name" name="lastname" [(ngModel)]="model.lastname" required>
+<!----****************************************************************
+@ purpose:= Designing The Registration Page For the FundooNOtes using HTML And Csss
+@Description:Put all the credential in proper tag so that it will show in the Registration page
+@Author: Shraddha Dhatavkar
+*******************************************************************************-->
+<div class="container">
+    <h1 style="font-size:30px;">FundooNotes</h1>
+    <h2>Sign Up Here</h2>
+    <form class="my-form">
+      <!-----<mat-form-field> is a component used to wrap several Angular Material components and
+         apply common Text field styles such as the
+       underline, floating label, and hint messages.--------->
+    <mat-form-field class="full-width">
+   
+      
+    <!--validate firstname-->
+    <input  matInput placeholder="Enter First Name" name="fname" [formControl]="firstName"[(ngModel)]="model.firstName" required >
+    <mat-error *ngIf="firstName.invalid">{{getErrorFirst()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+   
+   
+    <!--validate lastname-->
+    <input matInput placeholder="Enter Last Name" name="lname" [formControl]="lastName" [(ngModel)]="model.lastName" required >
+    <mat-error *ngIf="lastName.invalid">{{getErrorLast()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+   
+   
+    <!--validate email-->
+    <input matInput placeholder="Enter email" name="email" [formControl]="email" [(ngModel)]="model.email" required >
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>  
+    </mat-form-field>
+    <mat-form-field class="full-width">
+   
+    <!--validate password-->
+      <!----- matSuffix:=---It will be included within the visual container that wraps the 
+          form control as per the Material specification.and The matPrefix and matSuffix elements are 
+          center aligned by default for the newer appearances. --->
+    <input  matInput placeholder="Enter password" name="pwd"  [formControl]="password" [(ngModel)]="model.password"  [type]="hide ? 'password' : 'text'" 
+    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$" required >
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
+    </mat-form-field>
+     <!--validate confirm password-->
+    <mat-form-field class="full-width">
+   
+    
+    <input matInput placeholder=" Enter Confirm password" name="cpwd"  [(ngModel)]="model.confirmPassword" [type]="hide ? 'password' : 'text'"  
+    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$" required >
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    <!--mat-icon makes it easier to use vector-based icons in your app.--->
+    <mat-error *ngIf="confirmPassword != password">{{getErrorMessageConfirmPassword()}}</mat-error>
+    <!---The ng-hide directive hides the HTML element if the expression evaluates to true.--->
+    </mat-form-field>
+    </form>
+  
+    <!---<mat-card> is a content container for text, photos, and actions in the context of a single subject.-->
+    <mat-card-actions>
+    <!--use click method to click on registration 
+      <mat-card-actions>	Container for buttons at the bottom of the card-->
+          <button mat-button [disabled]="(!model.firstName)||(!model.lastName)||(!model.email)||(!model.password)" color="primary" class="button" type="submit" method="post"
+          (click)="registration()"><b>Register</b></button>
+    <button mat-raised-button method="post" (click)="cancel()"><a>Cancel</a></button>
+  </mat-card-actions>
+  </div>
 
-
-    <label for="username"><b>Email:-</b></label>
-    <input type="text" placeholder="Enter Email" name="email" [(ngModel)]="model.email" required>
-
-
-    <label for="password"><b>Password:-</b></label>
-    <input type="password" placeholder="Enter password" name="password" [(ngModel)]="model.password" required>
-
-    <label for="password"><b>Confirm Password:-</b></label>
-    <input type="password" placeholder="Confirm password" name="confirmPassword" [(ngModel)]="model.confirmPassword" required>
-<!--Bootstrap provides different styles of buttons, Bootstrap has the class btn-primary-->
-    <button class="btn btn-primary" type="submit" (click)="registration()"><a>Register</a></button>
-    <button class="btn btn-primary" type="submit" (click)="cancel()"><a>Cancel</a></button>
-
-  </form>
-</div>
