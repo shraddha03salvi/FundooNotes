@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
-import {FormGroup,FormControl,FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
- 
-//constructor for initialization for http services
-  constructor(private router: Router,private httpService: HttpService) { }
+  passwordPattern=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$/;
+  firstnamepattern=/^[_A-z]*((-|\s)*[_A-z])*$/;
+  lastnamepattern=/^[_A-z]*((-|\s)*[_A-z])*$/;
+  //constructor for initialization for http services
+  constructor(private router: Router, private httpService: HttpService, private snackBar: MatSnackBar) { }
   hide = true;
   // password = "";
   // confirmPassword="";
@@ -25,7 +29,7 @@ export class RegistrationComponent implements OnInit {
     "createdDate": "2019-01-17T07:39:30.294Z",
     "modifiedDate": "2019-01-17T07:39:30.294Z",
     "addresses": [
-    {}
+      {}
     ],
     "realm": "",
     "username": "",
@@ -34,71 +38,85 @@ export class RegistrationComponent implements OnInit {
     "id": "string",
     "password": "",
     "confirmPassword": ""
-    };
-   
+  };
+
   ngOnInit() {
-    
+
   }
-  firstName=new FormControl('', [Validators.required]);
-lastName=new FormControl('', [Validators.required]);
+  /*using validators validation of each filed in registration page */
+  firstName=new FormControl('', [Validators.required,Validators.pattern( '^[_A-z]*((-|\s)*[_A-z])*$')]);
+lastName=new FormControl('', [Validators.required ,Validators.pattern( '^[_A-z]*((-|\s)*[_A-z])*$')]);
 email = new FormControl('', [Validators.required, Validators.email]);
 password = new FormControl('', [Validators.required,
-  Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
-  confirmPassword = new FormControl('', [Validators.required, 
-  Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
+Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
+confirmPassword = new FormControl('', [Validators.required, 
+Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
+
+  /*functions or method for error message to each field */
   getErrorFirst() {
     return this.firstName.hasError('required') ? 'You must enter a value' :
-    this.firstName.hasError('firstName') ? 'Enter a valid name' :
-    '';
-    }
- getErrorLast(){
-      return this.lastName.hasError('required') ? 'You must enter a value' :
-      this.firstName.hasError('lastName') ? 'Enter a valid name' :
-      '';
-      }
-      getErrorMessage() {
-        return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
+      this.firstName.hasError('firstName') ? 'Enter a valid name' :
         '';
-        }
-        getErrorMessagePassword() {
-          return this.password.hasError('required') ? 'Password is Required' :
-          this.password.hasError('pattern') ? 'Not a valid Password! Please follow the correct format' :
-          '';
-          }
-          getErrorMessageConfirmPassword() {
-            return this.confirmPassword.hasError('required') ? 'Password is Required' :
-            this.confirmPassword.hasError('pattern') ? 'Not a valid Password! Please follow the correct format' :
-            '';
-         }
-  //if Registration button pressed, registration() method invoked
-  registration(){
-    var requestBody ={
-      "firstName":this.firstName.value,
-      "lastName":this.lastName.value,
-      "email":this.email.value,
-      "password" :this.password.value,
-      " confirmPassword":this.confirmPassword.value
-        
-      }
-      console.log(requestBody);
-    if (this.model.firstName && this.model.lastName && this.model.email && this.model.password == this.model.confirmPassword) {
-    this.httpService.postService('/user/userSignUp',this.model).subscribe(data => {
-    console.log(data);
-    this.router.navigate(['']);
-    }, err => {
-    console.log(err);
-    //this.router.navigate(['']);
-    })
-    } else if(this.model.password !=this.model.confirmPassword) {
-      //this.router.navigate(['registration']);
+  }
+  getErrorLast() {
+    return this.lastName.hasError('required') ? 'You must enter a value' :
+      this.firstName.hasError('lastName') ? 'Enter a valid name' :
+        '';
+  }
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+      this.email.hasError('email') ? 'Not a valid email' :
+        '';
+  }
+  getErrorMessagePassword() {
+    return this.password.hasError('required') ? 'Password is Required' :
+      this.password.hasError('pattern') ? 'Not a valid Password! Please follow the correct format with minimum length 8,one uppercase letter,specail symbol and number with lowercase letter' :
+        '';
+  }
+  getErrorMessageConfirmPassword() {
+    return this.confirmPassword.hasError('required') ? 'Password is Required' :
+      this.confirmPassword.hasError('pattern') ? 'Not a valid Password! Please follow the correct format' :
+        '';
+  }
+  /*if Registration button pressed, registration() method invoked*/
+  registration() {
+    if(this.model.firstName && this.model.lastName && this.model.email &&
+      this.passwordPattern.test(this.password.value) && this.firstnamepattern.test(this.firstName.value) && this.lastnamepattern.test(this.lastName.value))
+    {
+      if(this.model.password !=this.model.confirmPassword) 
+      {
+ //this.router.navigate(['registration']);
       //alert("fill all the field properly");
-      alert(" password mismatch");
+      //alert(" password is mismatch");
+      this.snackBar.open("password is mismatch",'okay',{ duration: 2000,});
+      return false;
       }
-      else{this.router.navigate(['registration']);}
-       }
-    cancel(){
-      this.router.navigate(['']);
-      }
+      var requestBody ={
+        "firstName":this.firstName.value,
+        "lastName":this.lastName.value,
+        "email":this.email.value,
+        "password" :this.password.value,
+        " confirmPassword":this.confirmPassword.value
+          
+        }
+        console.log(requestBody);
+        this.httpService.postService('/user/userSignUp',this.model).subscribe(data => {
+          console.log(data);
+          this.router.navigate(['']);
+          }, err => {
+          console.log(err);
+          //this.router.navigate(['']);
+          })
+
     }
-   
+    else{
+      this.snackBar.open("please follow the proper format",'okay',{ duration: 2000,})
+     // this.router.navigate(['registration']);
+    }
+  }
+  /*navigate to the login page*/
+  cancel() {
+    this.router.navigate(['']);
+  }
+}
+

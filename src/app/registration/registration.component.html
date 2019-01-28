@@ -3,6 +3,7 @@
 @Description:Put all the credential in proper tag so that it will show in the Registration page
 @Author: Shraddha Dhatavkar
 *******************************************************************************-->
+<form name="form">
 <div class="container">
     <h1 style="font-size:30px;">FundooNotes</h1>
     <h2>Sign Up Here</h2>
@@ -18,22 +19,20 @@
     <mat-error *ngIf="firstName.invalid">{{getErrorFirst()}}</mat-error>
     </mat-form-field>
     <mat-form-field class="full-width">
-   
-   
-    <!--validate lastname-->
+  <!--validate lastname-->
     <input matInput placeholder="Enter Last Name" name="lname" [formControl]="lastName" [(ngModel)]="model.lastName" required >
     <mat-error *ngIf="lastName.invalid">{{getErrorLast()}}</mat-error>
     </mat-form-field>
+    
+    
     <mat-form-field class="full-width">
-   
-   
-    <!--validate email-->
+   <!--validate email-->
     <input matInput placeholder="Enter email" name="email" [formControl]="email" [(ngModel)]="model.email" required >
     <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>  
     </mat-form-field>
-    <mat-form-field class="full-width">
    
-    <!--validate password-->
+    <mat-form-field class="full-width">
+   <!--validate password-->
       <!----- matSuffix:=---It will be included within the visual container that wraps the 
           form control as per the Material specification.and The matPrefix and matSuffix elements are 
           center aligned by default for the newer appearances. --->
@@ -64,4 +63,4 @@
     <button mat-raised-button method="post" (click)="cancel()"><a>Cancel</a></button>
   </mat-card-actions>
   </div>
-
+</form>

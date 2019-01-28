@@ -12,6 +12,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatInputModule, MatIconModule} from '@angular/material';
 import{ReactiveFormsModule} from '@angular/forms';
 import { MatCardModule } from '@angular/material';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+
 //An NgModule is a class marked by the @NgModule decorator and shows to compile a component's template
 @NgModule({
   declarations: [
@@ -25,7 +28,7 @@ import { MatCardModule } from '@angular/material';
     AppRoutingModule, FormsModule,
     HttpClientModule,BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule,
- MatIconModule,MatInputModule,ReactiveFormsModule,MatCardModule
+ MatIconModule,MatInputModule,ReactiveFormsModule,MatCardModule,MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

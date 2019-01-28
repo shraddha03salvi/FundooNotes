@@ -15,7 +15,7 @@
     <mat-form-field>
       <!--- "form field" refers to the wrapper component( the input, textarea, select, etc)
         form field control" refers to the component that the <mat-form-field> is wrapping--->
-      <input class="email" (ngModel)="model.email" matInput placeholder="Enter your email" pattern="[^ @]*@[^ @]*"
+      <input class="email"  matInput placeholder="Enter your email" pattern="[^ @]*@[^ @]*"
         [formControl]="email" required>
         <!---matInput placeholder=result in a floating label being added to the mat-form-field--->
       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
@@ -23,7 +23,7 @@
   </div>
   <div class="example-container">
     <mat-form-field>
-      <input class="email" [(ngModel)]="model.password" matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+      <input class="email" matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$" [formControl]="password"
         required>
       <!----- matSuffix:=---It will be included within the visual container that wraps the 
@@ -33,6 +33,7 @@
       <mat-error *ngIf="password.invalid">{{ getErrorMessagePassword()}}</mat-error>
     </mat-form-field>
   </div>
+  <!-- use click method to click on Login --->
   <button mat-button color="primary" class="button" type="submit" (click)="login()">Login</button>
   <button mat-button color="primary" class="button" type="submit" (click)="registration()">Register</button>
 </div>
