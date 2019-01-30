@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
         // this.snackBar.open("login successfully!",'okay',{ duration: 2000,})
         this.router.navigate(['dash-board'])
       }, err => {
-        this.snackBar.open("please fill the  valid crediantial", 'okay', { duration: 2000, })
+        this.snackBar.open("please fill the valid crediantial", 'okay', { duration: 2000, })
         // alert("please fill the  valid crediantial");
       })
     }
