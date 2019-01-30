@@ -15,12 +15,12 @@
    
       
     <!--validate firstname-->
-    <input  matInput placeholder="Enter First Name" name="fname" [formControl]="firstName"[(ngModel)]="model.firstName" required >
+    <input  matInput placeholder="Enter First Name" name="firstname" [formControl]="firstName"[(ngModel)]="model.firstName" required >
     <mat-error *ngIf="firstName.invalid">{{getErrorFirst()}}</mat-error>
     </mat-form-field>
     <mat-form-field class="full-width">
   <!--validate lastname-->
-    <input matInput placeholder="Enter Last Name" name="lname" [formControl]="lastName" [(ngModel)]="model.lastName" required >
+    <input matInput placeholder="Enter Last Name" name="lastname" [formControl]="lastName" [(ngModel)]="model.lastName" required >
     <mat-error *ngIf="lastName.invalid">{{getErrorLast()}}</mat-error>
     </mat-form-field>
     
@@ -36,7 +36,7 @@
       <!----- matSuffix:=---It will be included within the visual container that wraps the 
           form control as per the Material specification.and The matPrefix and matSuffix elements are 
           center aligned by default for the newer appearances. --->
-    <input  matInput placeholder="Enter password" name="pwd"  [formControl]="password" [(ngModel)]="model.password"  [type]="hide ? 'password' : 'text'" 
+    <input  matInput placeholder="Enter password" name="password"  [formControl]="password" [(ngModel)]="model.password"  [type]="hide ? 'password' : 'text'" 
     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$" required >
     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
@@ -58,7 +58,7 @@
     <mat-card-actions>
     <!--use click method to click on registration 
       <mat-card-actions>	Container for buttons at the bottom of the card-->
-          <button mat-button [disabled]="(!model.firstName)||(!model.lastName)||(!model.email)||(!model.password)" color="primary" class="button" type="submit" method="post"
+          <button mat-button  color="primary" class="button" type="submit" method="post"
           (click)="registration()"><b>Submitt</b></button>
     <button mat-raised-button method="post" (click)="cancel()"><a>Cancel</a></button>
   </mat-card-actions>
