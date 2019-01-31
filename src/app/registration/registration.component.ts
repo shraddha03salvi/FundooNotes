@@ -46,11 +46,11 @@ export class RegistrationComponent implements OnInit {
   /*using validators validation of each filed in registration page */
   firstName = new FormControl('', [Validators.required, Validators.pattern('^[_A-z]*((-|\s)*[_A-z])*$')]);
   lastName = new FormControl('', [Validators.required, Validators.pattern('^[_A-z]*((-|\s)*[_A-z])*$')]);
-  email = new FormControl('', [Validators.required, Validators.email]);
+  email = new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$')]);
   password = new FormControl('', [Validators.required,
-  Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
+  Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,10}$')]);
   confirmPassword = new FormControl('', [Validators.required,
-  Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
+  Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,10}$')]);
 
   /*functions or method for error message to each field */
   getErrorFirst() {
@@ -65,12 +65,12 @@ export class RegistrationComponent implements OnInit {
   }
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' :
+      this.email.hasError('pattern') ? 'Not a valid email!enter number and letter' :
         '';
   }
   getErrorMessagePassword() {
     return this.password.hasError('required') ? 'Password is Required' :
-      this.password.hasError('pattern') ? 'Not a valid Password!password shoulde be minimumlength 8,one upper & lowercase letter,one special symbol & number' :
+      this.password.hasError('pattern') ? 'Not a valid Password!follow the format with minlength 8 & combination of uppercase,lowercase,special symbol & number' :
         '';
   }
   getErrorMessageConfirmPassword() {
@@ -100,9 +100,12 @@ export class RegistrationComponent implements OnInit {
       console.log(requestBody);
       this.httpService.postService('/user/userSignUp', this.model).subscribe(data => {
         console.log(data);
+        this.snackBar.open("Registration is done in FundooNotes",'okay',{duration:2000})
         this.router.navigate(['']);
       }, err => {
         console.log(err);
+        this.snackBar.open("Registration Failed", 'okay', { duration: 2000, })
+
         //this.router.navigate(['']);
       })
 

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   /*using validators validation of each filed in login  page */
-  email = new FormControl('', [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]);
+  email = new FormControl('', [Validators.required,  Validators.pattern('^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$')]);
   password = new FormControl('', [Validators.required,
   Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
 
@@ -30,18 +30,18 @@ export class LoginComponent implements OnInit {
   /*functions or method for error message to each field */
   getErrorMessage() {
     return this.email.hasError('required') ? 'email is required' :
-      this.email.hasError('pattern') ? 'Not a valid email' :
+      this.email.hasError('pattern') ? 'Not a valid email!number and letter is mandtory' :
         '';
   }
   getErrorMessagePassword() {
     return this.password.hasError('required') ? 'password is required' :
-      this.password.hasError('pattern') ? 'Not a valid Password! Please follow the correct format with minimum lenght 8,one uppercase & lowercase letter,one special symbol & number' :
+      this.password.hasError('pattern') ? 'Not a valid Password!follow the format with minlength 8 & combination of uppercase,lowercase,special symbol & number' :
         '';
   }
   /*validate the login page*/
   login() {
     if (this.getErrorMessage() != "" || this.getErrorMessagePassword() != "") {
-      this.snackBar.open("Login Failed! please register first!!" , 'okay', { duration: 2000, })
+      this.snackBar.open("please fill the valid crediantial" , 'okay', { duration: 2000, })
       return false;
     }
     else {
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
         // this.snackBar.open("login successfully!",'okay',{ duration: 2000,})
         this.router.navigate(['dash-board'])
       }, err => {
-        this.snackBar.open("please fill the valid crediantial", 'okay', { duration: 2000, })
+        this.snackBar.open("Login Failed! please register first!!", 'okay', { duration: 2000, })
         // alert("please fill the  valid crediantial");
       })
     }

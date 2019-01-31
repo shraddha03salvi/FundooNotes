@@ -15,7 +15,7 @@
     <mat-form-field>
       <!--- "form field" refers to the wrapper component( the input, textarea, select, etc)
         form field control" refers to the component that the <mat-form-field> is wrapping--->
-      <input class="email"  matInput placeholder="Enter your email" pattern="[^ @]*@[^ @]*"
+      <input class="email"  matInput placeholder="Enter your email" 
         [formControl]="email" required>
         <!---matInput placeholder=result in a floating label being added to the mat-form-field--->
       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
