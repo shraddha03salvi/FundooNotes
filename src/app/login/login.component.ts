@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   /*using validators validation of each filed in login  page */
-  email = new FormControl('', [Validators.required,  Validators.pattern('^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$')]);
+  email = new FormControl('', [Validators.required,  Validators.pattern('^[a-z0-9](\.?[a-z0-9]){5,}@(yahoo|gmail|hotmail|redmail|next|Next|Next)\.com$')]);
   password = new FormControl('', [Validators.required,
   Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
 

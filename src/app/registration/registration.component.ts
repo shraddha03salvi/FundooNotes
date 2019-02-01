@@ -46,7 +46,7 @@ export class RegistrationComponent implements OnInit {
   /*using validators validation of each filed in registration page */
   firstName = new FormControl('', [Validators.required, Validators.pattern('^[_A-z]*((-|\s)*[_A-z])*$')]);
   lastName = new FormControl('', [Validators.required, Validators.pattern('^[_A-z]*((-|\s)*[_A-z])*$')]);
-  email = new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$')]);
+  email = new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9](\.?[a-z0-9]){5,}@(yahoo|gmail|hotmail|redmail|next|Next|Next)\.com$')]);
   password = new FormControl('', [Validators.required,
   Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,10}$')]);
   confirmPassword = new FormControl('', [Validators.required,
@@ -111,7 +111,7 @@ export class RegistrationComponent implements OnInit {
 
     }
     else {
-      this.snackBar.open("please follow the proper format", 'okay', { duration: 2000, })
+      this.snackBar.open("please fill form & follow the proper format", 'okay', { duration: 2000, })
       // this.router.navigate(['registration']);
     }
   }

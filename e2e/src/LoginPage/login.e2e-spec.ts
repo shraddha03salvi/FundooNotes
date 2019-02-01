@@ -7,7 +7,7 @@ describe('workspace-project App', () => {
   beforeEach(() => {
     page = new AppPage();
   });
-
+browser.driver.manage().window().maximize();
  /* it('should display FundooNotes', () => {
     page.navigateTo();
     // browser.pause();
@@ -695,7 +695,7 @@ it('should show Invalid Result for Registration page("password fillup with valid
 /*Invalid case for Registration page("password fillup with valid input & cpwd fillup but not like password
 & all other field are fillup with valid input") 
 */
-it('should show Invalid Result for Registration page("password fillup with valid input & cpwd is blank ")'
+it('should show Invalid Result for Registration page("password fillup with valid input &  cpwd fillup but not like password ")'
 ,()=>{
   page.navigateTo();
   browser.sleep(2000);
@@ -715,5 +715,97 @@ it('should show Invalid Result for Registration page("password fillup with valid
     expect(page.clicksubmitt())
     browser.sleep(2000);
     //page.navigateTo();
+});
+/*Invalid case for Registration page("email field fillup without "number" & all
+ other field are fillup with valid input") */
+ it('should show Invalid Result for Registration page("email field fillup without "number" ")'
+,()=>{
+  page.navigateTo();
+  browser.sleep(2000);
+  expect(page.clickregister())
+  //page.navigateTo();
+  browser.sleep(1500);
+    expect(page.getfirstname21())
+    browser.sleep(2000);
+    expect(page.getlastname21())
+    browser.sleep(2000);
+    expect(page.getemailid21())
+    browser.sleep(2000);
+    expect(page.getpassword21())
+    browser.sleep(2000);
+    expect(page.getcpwd21())
+    browser.sleep(2000);
+    expect(page.clicksubmitt())
+    browser.sleep(2000);
+    //page.navigateTo();
+});
+/*Invalid case for Registration page("email field fillup with vlaid input & 
+all other field are fillup with invalid input") */
+it('should show Invalid Result for Registration page("email field fillup with vlaid input & all field fillup with invalid input ")'
+,()=>{
+  page.navigateTo();
+  browser.sleep(2000);
+  expect(page.clickregister())
+  //page.navigateTo();
+  browser.sleep(1500);
+    expect(page.getfirstname22())
+    browser.sleep(2000);
+    expect(page.getlastname22())
+    browser.sleep(2000);
+    expect(page.getemailid22())
+    browser.sleep(2000);
+    expect(page.getpassword22())
+    browser.sleep(2000);
+    expect(page.getcpwd22())
+    browser.sleep(2000);
+    expect(page.clicksubmitt())
+    browser.sleep(2000);
+    //page.navigateTo();
+});
+/*valid case for Registration page when click on cancel button its goes to the login page
+("sign up page is blank & and click on cancel button") */
+it('should show valid Result for Registration page("sign up page is blank & and click on cancel button")'
+,()=>{
+  page.navigateTo();
+  browser.sleep(2000);
+  expect(page.clickregister())
+  //page.navigateTo();
+  browser.sleep(1500);
+    expect(page.getfirstname23())
+    browser.sleep(2000);
+    expect(page.getlastname23())
+    browser.sleep(2000);
+    expect(page.getemailid23())
+    browser.sleep(2000);
+    expect(page.getpassword23())
+    browser.sleep(2000);
+    expect(page.getcpwd23())
+    browser.sleep(2000);
+    expect(page.clickcancel())
+    browser.sleep(2000);
+    page.navigateTo();
+});
+/*valid case for Registration page when click on cancel button its goes to the login page
+("sign up page is fillup with valid input & and click on cancel button") */
+it('should show valid Result for Registration page("sign up page is fillup with valid input & and click on cancel button")'
+,()=>{
+  page.navigateTo();
+  browser.sleep(2000);
+  expect(page.clickregister())
+  //page.navigateTo();
+  browser.sleep(1500);
+    expect(page.getfirstname24())
+    browser.sleep(2000);
+    expect(page.getlastname24())
+    browser.sleep(2000);
+    expect(page.getemailid24())
+    browser.sleep(2000);
+    expect(page.getpassword24())
+    browser.sleep(2000);
+    expect(page.getcpwd24())
+    browser.sleep(2000);
+    expect(page.clickcancel())
+    browser.sleep(2000);
+    page.navigateTo();
 });
 });

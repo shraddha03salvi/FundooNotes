@@ -31,19 +31,19 @@ export class AppPage {
     }
      /*---------fill sign up form and sumbit it------------------- */
     getfirstname(){
-        return element(by.xpath('//*[@id="mat-input-2"]')).sendKeys('Reenaa');
+        return element(by.xpath('//*[@id="mat-input-2"]')).sendKeys('Reenaaa');
     }
     getlastname(){
-        return element(by.xpath('//*[@id="mat-input-3"]')).sendKeys('lealee');
+        return element(by.xpath('//*[@id="mat-input-3"]')).sendKeys('lealeee');
     }
     getemailid(){
-        return element(by.xpath('//*[@id="mat-input-4"]')).sendKeys('rina122@gmail.com');
+        return element(by.xpath('//*[@id="mat-input-4"]')).sendKeys('rina1221@gmail.com');
     }
     getpassword(){
-        return element(by.xpath('//*[@id="mat-input-5"]')).sendKeys('Rina@23456');
+        return element(by.xpath('//*[@id="mat-input-5"]')).sendKeys('Rinaa@23456');
     }
     getcpwd(){
-        return element(by.xpath('//*[@id="mat-input-6"]')).sendKeys('Rina@23456');
+        return element(by.xpath('//*[@id="mat-input-6"]')).sendKeys('Rinaa@23456');
     }
     clicksubmitt(){
         return element(by.xpath('/html/body/app-root/app-registration/form/div/mat-card-actions/button[1]')).click();
@@ -467,6 +467,70 @@ getcpwd14(){
     return element(by.xpath('//*[@id="mat-input-5"]')).sendKeys('Rina@123456');
   }
   getcpwd20(){
+    return element(by.xpath('//*[@id="mat-input-6"]')).sendKeys('Rina@1234');
+    }
+    /*-------@email field fillup without "number" & all other field are fillup with valid input@----------- */
+    getfirstname21(){
+      return element(by.xpath('//*[@id="mat-input-2"]')).sendKeys('Rinaa');
+    }
+    getlastname21(){
+      return element(by.xpath('//*[@id="mat-input-3"]')).sendKeys('lelee');
+    }
+    getemailid21(){
+      return element(by.xpath('//*[@id="mat-input-4"]')).sendKeys('rina@gmail.com');
+    }
+    getpassword21(){
+      return element(by.xpath('//*[@id="mat-input-5"]')).sendKeys('Rina@123456');
+    }
+    getcpwd21(){
+      return element(by.xpath('//*[@id="mat-input-6"]')).sendKeys('Rina@1234');
+      }
+/*-------@email field fillup with vlaid input & all other field are fillup with invalid input@----------- */
+getfirstname22(){
+  return element(by.xpath('//*[@id="mat-input-2"]')).sendKeys('Rinaa 123');
+}
+getlastname22(){
+  return element(by.xpath('//*[@id="mat-input-3"]')).sendKeys('lelee123');
+}
+getemailid22(){
+  return element(by.xpath('//*[@id="mat-input-4"]')).sendKeys('rina121@gmail.com');
+}
+getpassword22(){
+  return element(by.xpath('//*[@id="mat-input-5"]')).sendKeys('Rina123');
+}
+getcpwd22(){
+  return element(by.xpath('//*[@id="mat-input-6"]')).sendKeys('Rina123');
+  }
+/*-------@sign up page is blank & and click on cancel button@----------- */
+getfirstname23(){
+  return element(by.xpath('//*[@id="mat-input-2"]')).sendKeys('');
+}
+getlastname23(){
+  return element(by.xpath('//*[@id="mat-input-3"]')).sendKeys('');
+}
+getemailid23(){
+  return element(by.xpath('//*[@id="mat-input-4"]')).sendKeys('');
+}
+getpassword23(){
+  return element(by.xpath('//*[@id="mat-input-5"]')).sendKeys('');
+}
+getcpwd23(){
+  return element(by.xpath('//*[@id="mat-input-6"]')).sendKeys('');
+  }
+  /*-------@sign up page is fillup with valid input & and click on cancel button@----------- */
+  getfirstname24(){
+    return element(by.xpath('//*[@id="mat-input-2"]')).sendKeys('Rinaa');
+  }
+  getlastname24(){
+    return element(by.xpath('//*[@id="mat-input-3"]')).sendKeys('lelee');
+  }
+  getemailid24(){
+    return element(by.xpath('//*[@id="mat-input-4"]')).sendKeys('rina121@gmail.com');
+  }
+  getpassword24(){
+    return element(by.xpath('//*[@id="mat-input-5"]')).sendKeys('Rina@123456');
+  }
+  getcpwd24(){
     return element(by.xpath('//*[@id="mat-input-6"]')).sendKeys('Rina@1234');
     }
 }
